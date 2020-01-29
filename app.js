@@ -10,7 +10,7 @@ app.event("channel_created", async ({ event, context }) => {
   try {
     const result = await app.client.chat.postMessage({
       token: context.botToken,
-      channel: "CT8AE805N",
+      channel: process.env.SLACK_CHANNEL_ID,
       text: `A new channel was created: <#${event.channel.id}> 🎉 Ready to join the FOMO?.`
     });
     console.log(result);
