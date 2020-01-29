@@ -1,5 +1,6 @@
 // Require the Bolt package (github.com/slackapi/bolt)
 const { App } = require("@slack/bolt");
+var _ = require('lodash');
 
 const app = new App({
   token: process.env.SLACK_BOT_TOKEN,

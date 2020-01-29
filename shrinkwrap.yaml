@@ -1,5 +1,6 @@
 dependencies:
   '@slack/bolt': 1.5.0
+  lodash: 4.17.15
 packages:
   /@slack/bolt/1.5.0:
     dependencies:
@@ -385,6 +386,10 @@ packages:
       node: '>=0.10.0'
     resolution:
       integrity: sha1-EtSj3U5o4Lec6428hBc66A2RykQ=
+  /lodash/4.17.15:
+    dev: false
+    resolution:
+      integrity: sha512-8xOcRHvCjnocdS5cpwXQXVzmmh5e5+saE2QGoeQmbKmRS6J3VQppPOIt0MnmE+4xlZoumy0GPG0D0MVIQbNA1A==
   /media-typer/0.3.0:
     dev: false
     engines:
@@ -621,3 +626,4 @@ shrinkwrapMinorVersion: 9
 shrinkwrapVersion: 3
 specifiers:
   '@slack/bolt': ^1.5.0
+  lodash: ~4.17.15
