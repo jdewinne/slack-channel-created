@@ -1,7 +1,7 @@
 {
-  "name": "bolt-app-template",
+  "name": "slack-channel-created-notifier",
   "version": "0.0.1",
-  "description": "A basic template to spin up a Bolt app for Slack",
+  "description": "A basic Slack channel created notifier",
   "main": "app.js",
   "scripts": {
     "start": "node app.js"
