@@ -8,10 +8,10 @@ const app = new App({
   signingSecret: process.env.SLACK_SIGNING_SECRET
 });
 
-app.event("channel_created", async ({ event, context }) => {
+app.event("channel_created", ({ event, context }) => {
   try {
     if (!_.includes(events, event.channel.id)) {
-      const result = await app.client.chat.postMessage({
+      const result = app.client.chat.postMessage({
         token: context.botToken,
         channel: process.env.SLACK_CHANNEL_ID,
         text: `A new channel was created: <#${event.channel.id}> 🎉 Ready to join the FOMO?.`
