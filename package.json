@@ -7,8 +7,8 @@
     "start": "node app.js"
   },
   "dependencies": {
-    "@slack/bolt": "^1.5.0",
-    "lodash": "~4.17.15"
+    "@slack/bolt": "^2.4.1",
+    "lodash": "~4.17.20"
   },
   "engines": {
     "node": "11.x"
