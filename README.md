@@ -10,8 +10,8 @@ Bolt app template
 This project was created using the [Bolt app template](https://slack.dev/bolt) framework that lets you build JavaScript-based Slack apps in a flash.
 
 
-Usage
-=====
+Usage for development
+=====================
 
 1. Go to `https://api.slack.com/apps` and create a new App with name `Channel Created notifier` for your workspace.
 1. Run `docker build -t jdewinne/slack-channel-created:0.0.1 .`
@@ -24,3 +24,10 @@ Env variables
 1. SLACK_BOTH_TOKEN: `https://api.slack.com/apps` > `Channel Created Notifier` > `OAuth & Permissions` > `Bot User OAuth Token`
 1. PORT: The port of your choice, default `3000`
 1. SLACK_CHANNEL_ID: Open your slack workspace in your browser, and open the channel where you expect the fomo messages to appear. In the address bar,  `https://app.slack.com/client/<ID_ONE>/<ID TWO>`, `ID TWO` will be the channel id.
+
+
+Usage in production on-prem
+===========================
+
+1. kURL
+1. Kots
