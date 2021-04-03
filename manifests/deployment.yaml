@@ -23,20 +23,20 @@ spec:
           - containerPort: 3000
           env:
           - name: SLACK_BOT_TOKEN
-          valueFrom:
-            secretKeyRef:
-              name: slack-secret
-              key: bot-token
+            valueFrom:
+              secretKeyRef:
+                name: slack-channel-created-fomo
+                key: bot-token
           - name: SLACK_SIGNING_SECRET
-          valueFrom:
-            secretKeyRef:
-              name: slack-secret
-              key: signing-secret
+            valueFrom:
+              secretKeyRef:
+                name: slack-channel-created-fomo
+                key: signing-secret
           - name: SLACK_CHANNEL_ID
-          valueFrom:
-            secretKeyRef:
-              name: slack-secret
-              key: channel-id
+            valueFrom:
+              secretKeyRef:
+                name: slack-channel-created-fomo
+                key: channel-id
           resources:
             limits:
               memory: '256Mi'
