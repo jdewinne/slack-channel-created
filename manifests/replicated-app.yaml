@@ -6,9 +6,9 @@ spec:
   title: App Name
   icon: https://raw.githubusercontent.com/cncf/artwork/master/projects/kubernetes/icon/color/kubernetes-icon-color.png
   statusInformers:
-    - deployment/example-nginx
+    - deployment/slack-channel-created-fomo
   ports:
-    - serviceName: "example-nginx"
+    - serviceName: "slack-channel-created-fomo"
       servicePort: 80
       localPort: 8888
-      applicationUrl: "http://example-nginx"
+      applicationUrl: "http://slack-channel-created-fomo"

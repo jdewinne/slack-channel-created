@@ -1,20 +1,25 @@
 apiVersion: kots.io/v1beta1
 kind: Config
 metadata:
-  name: config-sample
+  name: fomo-sample
 spec:
   groups:
-    - name: example_settings
-      title: My Example Config
-      description: Configuration to serve as an example for creating your own. See [https://kots.io/reference/v1beta1/config/](https://kots.io/reference/v1beta1/config/) for configuration docs. In this case, we provide example fields for configuring an Ingress object.
+    - name: slack_settings
+      title: My Slack Config
+      description: Configuration to connect the Slack Channel Created bot to your Slack workspace
       items:
-        - name: use_ingress
-          title: Use Ingress?
-          help_text: An example field to toggle inclusion of an Ingress Object
-          type: bool
-          default: "0"
-        - name: ingress_hostname
-          title: Ingress Hostname
-          help_text: If desired, enter the hostname for ingress to this application. You can enter the IP of this instance, or a DNS hostname.
-          type: text
-          when: repl{{ ConfigOptionEquals "use_ingress" "1" }}
+        - name: slack_bot_token
+          title: Slack Bot Token
+          help_text: The Bot User OAuth Token from your Slack custom app
+          type: password
+          required: true
+        - name: slack_signing_secret
+          title: Slack Signing Secret
+          help_text: The Signing Secret from your Slack custom app
+          type: password
+          required: true
+        - name: slack_channel_id
+          title: Slack Channel Id
+          help_text: Open your slack workspace in your browser, and open the channel where you expect the fomo messages to appear. In the address bar the last part is the channel id.
+          type: password
+          required: true
