@@ -1,7 +1,7 @@
 Slack Channel Created notifier
 =============================
 
-+ TODO: Externalize `.env` variables so that the app can be hosted and handle as many channel created notification as needed.
+This app simplifies the Slack Channel Fear of missing out. You simply create a single channel in your Slack workspace and invite everyone of the org to that channel. The bot will post a message in there, each time a new channel is created.
 
 
 Bolt app template
@@ -30,6 +30,7 @@ Env variables
 Usage in production on-prem
 ===========================
 
+For production setups, we make use of Replicated [kots](https://kots.io/).
 1. kURL: Use the `kurl-installer.yaml` in combination with letsencrypt for tls.
    The deployment of the `ClusterIssuer` is not part of the kots app. See also this [tutorial](https://projectcontour.io/guides/cert-manager/#deploy-the-lets-encrypt-cluster-issuer).
-1. Kots
+1. GKE
