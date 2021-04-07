@@ -1,0 +1,16 @@
+apiVersion: kots.io/v1beta1
+kind: Application
+metadata:
+  name: slack-channel-created-fomo
+spec:
+  title: Slack Channel Created Fomo
+  icon: https://raw.githubusercontent.com/cncf/artwork/master/projects/kubernetes/icon/color/kubernetes-icon-color.png
+  additionalNamespaces:
+    - '{{repl ConfigOption "namespace" }}'
+  statusInformers:
+    - '{{repl ConfigOption "namespace" }}/deployment/slack-channel-created-fomo'
+  ports:
+    - serviceName: "slack-channel-created-fomo"
+      servicePort: 80
+      localPort: 8888
+      applicationUrl: "http://slack-channel-created-fomo"
