@@ -8,9 +8,9 @@ spec:
     - clusterResources: {}
     - logs:
         selector:
-          - app=example
-          - component=nginx
-        namespace: '{{repl Namespace }}'
+          - app=slack-channel-created-fomo
+          - component=notifier
+        namespace: '{{repl ConfigOption "namespace" }}'
         limits:
           maxAge: 30d
           maxLines: 10000

@@ -16,6 +16,7 @@ Usage for development
 1. Go to `https://api.slack.com/apps` and create a new App with name `Channel Created notifier` for your workspace.
 1. Run `docker build -t jdewinne/slack-channel-created:0.0.1 .`
 1. Run `docker run -p 3000:3000 -e SLACK_SIGNING_SECRET=yoursecret -e SLACK_BOT_TOKEN=yourtoken -e PORT=3000 -e SLACK_CHANNEL_ID=TheFomoChannelId jdewinne/slack-channel-created:0.0.1`
+1. Use something like `ngrok` to expose your dev environment to the public and accessible by Slack API.
 
 Env variables
 =============
@@ -29,5 +30,6 @@ Env variables
 Usage in production on-prem
 ===========================
 
-1. kURL
+1. kURL: Use the `kurl-installer.yaml` in combination with letsencrypt for tls.
+   The deployment of the `ClusterIssuer` is not part of the kots app. See also this [tutorial](https://projectcontour.io/guides/cert-manager/#deploy-the-lets-encrypt-cluster-issuer).
 1. Kots
