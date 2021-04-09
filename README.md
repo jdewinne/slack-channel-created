@@ -33,4 +33,4 @@ Usage in production on-prem
 For production setups, we make use of Replicated [kots](https://kots.io/).
 1. kURL: Use the `kurl-installer.yaml` in combination with letsencrypt for tls.
    The deployment of the `ClusterIssuer` is not part of the kots app. See also this [tutorial](https://projectcontour.io/guides/cert-manager/#deploy-the-lets-encrypt-cluster-issuer).
-1. GKE
+1. GKE: HttpLoadBalancing is done via the [GKE HttpLoadBalancing addon](https://cloud.google.com/kubernetes-engine/docs/how-to/load-balance-ingress#gcloud).

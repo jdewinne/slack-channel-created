@@ -1,0 +1,22 @@
+apiVersion: app.k8s.io/v1beta1
+kind: Application
+metadata:
+  name: "slack-channel-created-fomo"
+  labels:
+    app.kubernetes.io/name: "slack-channel-created-fomo"
+    app.kubernetes.io/version: "0.0.1"
+spec:
+  selector:
+    matchLabels:
+     app.kubernetes.io/name: "slack-channel-created-fomo"
+  componentKinds: []
+  descriptor:
+    version: "0.0.1"
+    description: "Slack Channel Created Fomo"
+    icons:
+      - src: "https://raw.githubusercontent.com/cncf/artwork/master/projects/kubernetes/icon/color/kubernetes-icon-color.png"
+        type: "image/png"
+    type: "slack"
+    links:
+      - description: Slack FOMO
+        url: "http://slack"
