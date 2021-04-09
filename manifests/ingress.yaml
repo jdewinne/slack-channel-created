@@ -1,25 +1,15 @@
-apiVersion: extensions/v1beta1
+apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:
   name: slackfomo
-  namespace: '{{repl ConfigOption "namespace" }}'
   annotations:
-    kots.io/when: '{{repl ConfigOptionEquals "use_ingress" "1" }}'
-    cert-manager.io/cluster-issuer: letsencrypt-staging
-    ingress.kubernetes.io/force-ssl-redirect: "true"
-    kubernetes.io/ingress.class: contour
-    kubernetes.io/tls-acme: "true"
+    kots.io/exclude: '{{repl IsKurl }}'
+    kubernetes.io/ingress.class: "gce"
 spec:
-  tls:
-    - hosts:
-        - repl{{ ConfigOption "ingress_hostname" }}
-      secretName: slackfomo
   rules:
-    - host: repl{{ ConfigOption "ingress_hostname" }}
-      http:
+    - http:
         paths:
-          - path: /
+          - path: /*
             backend:
               serviceName: slack-channel-created-fomo
               servicePort: 3000
-

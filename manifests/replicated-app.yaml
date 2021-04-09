@@ -5,10 +5,8 @@ metadata:
 spec:
   title: Slack Channel Created Fomo
   icon: https://raw.githubusercontent.com/cncf/artwork/master/projects/kubernetes/icon/color/kubernetes-icon-color.png
-  additionalNamespaces:
-    - '{{repl ConfigOption "namespace" }}'
   statusInformers:
-    - '{{repl ConfigOption "namespace" }}/deployment/slack-channel-created-fomo'
+    - '{{repl if IsKurl}}{{repl ConfigOption "namespace" }}/deployment/slack-channel-created-fomo{{repl else}}deployment/slack-channel-created-fomo{{repl end }}'
   ports:
     - serviceName: "slack-channel-created-fomo"
       servicePort: 80

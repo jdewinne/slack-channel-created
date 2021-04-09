@@ -14,6 +14,7 @@ spec:
           type: text
           required: true
           default: "slack"
+          when: repl{{ IsKurl }}
         - name: use_ingress
           title: Use Ingress?
           help_text: An example field to toggle inclusion of an Ingress Object
