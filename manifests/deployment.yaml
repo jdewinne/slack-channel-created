@@ -19,7 +19,7 @@ spec:
     spec:
       containers:
         - name: notifier
-          image: jdewinne/slack-channel-created:0.0.4
+          image: jdewinne/slack-channel-created:0.0.7
           ports:
           - containerPort: 3000
           env:

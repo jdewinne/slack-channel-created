@@ -9,7 +9,7 @@ metadata:
 spec:
   type: '{{repl if IsKurl}}ClusterIP{{repl else}}NodePort{{repl end }}'
   ports:
-  - port: 3000
+  - port: 4000
     targetPort: 3000
     protocol: TCP
   selector:

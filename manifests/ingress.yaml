@@ -9,7 +9,7 @@ spec:
   rules:
     - http:
         paths:
-          - path: /*
+          - path: /slack/events
             backend:
               serviceName: slack-channel-created-fomo
-              servicePort: 3000
+              servicePort: 4000
