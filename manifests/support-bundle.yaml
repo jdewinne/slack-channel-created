@@ -10,7 +10,6 @@ spec:
         selector:
           - app=slack-channel-created-fomo
           - component=notifier
-        namespace: '{{repl if IsKurl}}{{repl ConfigOption "namespace" }}{{repl else}}{{repl Namespace}}{{repl end }}'
         limits:
           maxAge: 30d
           maxLines: 10000

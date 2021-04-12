@@ -8,13 +8,6 @@ spec:
       title: Kubernetes configuration settings
       description: Configuration for configuring your app in k8s.
       items:
-        - name: namespace
-          title: Namespace
-          help_text: Namespace to deploy the app in.
-          type: text
-          required: true
-          default: "slack"
-          when: repl{{ IsKurl }}
         - name: use_ingress
           title: Use Ingress?
           help_text: An example field to toggle inclusion of an Ingress Object
