@@ -1,1 +1,8 @@
 node_modules
+helm/kots/deps
+helm/kots/manifests/slack-channel-created-fomo*.tgz
+helm/kots/manifests/application.yaml
+helm/kots/manifests/config.yaml
+helm/kots/manifests/preflight.yaml
+helm/kots/manifests/support-bundle.yaml
+helm/kots/manifests/replicated-app.yaml

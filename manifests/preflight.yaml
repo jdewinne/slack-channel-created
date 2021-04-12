@@ -19,10 +19,10 @@ spec:
     - containerRuntime:
         outcomes:
           - pass:
-              when: "== docker"
-              message: Docker container runtime was found.
+              when: "== containerd"
+              message: ContainerD runtime was found.
           - fail:
-              message: Did not find Docker container runtime.
+              message: Did not find containerd runtime.
     - distribution:
         checkName: Check Kubernetes environment.
         outcomes:

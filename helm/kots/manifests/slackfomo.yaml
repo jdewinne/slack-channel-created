@@ -1,0 +1,67 @@
+apiVersion: kots.io/v1beta1
+kind: HelmChart
+metadata:
+  name: slack-channel-created-fomo
+spec:
+  # chart identifies a matching chart from a .tgz
+  chart:
+    name: slack-channel-created-fomo
+    chartVersion: 0.1.0
+
+  # helmVersion identifies the Helm Version used to render the Chart. Default is v2.
+  helmVersion: v3
+
+  # values are used in the customer environment, as a pre-render step
+  # these values will be supplied to helm template
+  values: 
+    boltSecrets:
+      SLACK_BOT_TOKEN: '{{repl ConfigOption "slack_bot_token" | Base64Encode}}'
+      SLACK_SIGNING_SECRET: '{{repl ConfigOption "slack_signing_secret" | Base64Encode}}'
+      SLACK_CHANNEL_ID: '{{repl ConfigOption "slack_channel_id" | Base64Encode}}'
+
+  optionalValues:
+    - when: '{{repl and (ConfigOptionEquals "use_ingress" "1") IsKurl }}'
+      values:
+        ingress:
+          enabled: repl{{ ConfigOptionEquals "use_ingress" "1" }}
+          annotations:
+            cert-manager.io/cluster-issuer: letsencrypt-staging
+            ingress.kubernetes.io/force-ssl-redirect: "true"
+            kubernetes.io/ingress.class: contour
+            kubernetes.io/tls-acme: "true"
+          hosts:
+            - host: 'repl{{ ConfigOption "ingress_hostname" }}'
+              paths:
+                - path: /
+                  backend:
+                    serviceName: slack-channel-created-fomo
+                    servicePort: 4000
+                - path: /slack/events
+                  backend:
+                    serviceName: slack-channel-created-fomo
+                    servicePort: 4000
+          tls:
+            - secretName: slack-channel-created-fomo
+              hosts:
+                - repl{{ ConfigOption "ingress_hostname" }}
+    - when: '{{repl and (ConfigOptionEquals "use_ingress" "1") (not IsKurl) }}'
+      values:
+          service:
+            type: NodePort
+          ingress:
+            enabled: repl{{ ConfigOptionEquals "use_ingress" "1" }}
+            annotations:
+              kubernetes.io/ingress.class: "gce"
+            hosts:
+              - host: 'repl{{ ConfigOption "ingress_hostname" }}'
+                paths:
+                  - path: /
+                    backend:
+                      serviceName: slack-channel-created-fomo
+                      servicePort: 4000
+                  - path: /slack/events
+                    backend:
+                      serviceName: slack-channel-created-fomo
+                      servicePort: 4000
+            
+
