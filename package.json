@@ -8,7 +8,7 @@
   },
   "dependencies": {
     "@slack/bolt": "^2.7.0",
-    "lodash": "~4.17.21"
+    "lodash": "~4.17.23"
   },
   "engines": {
     "node": "11.x"
